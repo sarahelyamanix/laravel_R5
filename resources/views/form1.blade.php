@@ -4,20 +4,16 @@
 
 <h2>HTML Forms</h2>
 
-<form action="{{url('/')}}/name" method="POST">
+<form action="{{route('formResult')}}" method="post">
     @csrf
-    <div>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value=""><br>
-  <!-- <span style="color:red">@error('fname')('This Field is reqiuered') @enderror</span> -->
-  <br>
-</div>
-<div>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value=""><br>
-  <!-- <span style="color:red">@error('lname')('This Field is reqiuered') @enderror</span> -->
-  <br>
-</div>
+  <label for="fname">name:</label><br>
+  <input type="text" id="fname" name="clientName" value=""><br>
+  <label for="lname">phone:</label><br>
+  <input type="text" id="lname" name="phone" value=""><br>
+  <label for="lname">email:</label><br>
+  <input type="text" id="lname" name="email" value=""><br>
+  <label for="lname">website:</label><br>
+  <input type="text" id="lname" name="website" value=""><br><br>
   <input type="submit" value="Submit">
 </form> 
 
@@ -25,4 +21,3 @@
 
 </body>
 </html>
-
