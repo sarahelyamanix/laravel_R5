@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Students</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,25 +9,27 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 @include('includes.nav')
+
 <div class="container">
-<h2>HTML Forms</h2>
-<div>
-<form action="{{ route('insertStudent') }}" method="POST">
-    @method('POST')
-    @csrf
-<div>
-  <label for="studentName">Student Name:</label><br>
-  <input type="text" id="studentName" name="studentName" value=""><br><br>
-</div>
-<div>
-  <label for="astudentAge">Student Age:</label><br>
-  <input type="text" id="studentAge" name="studentAge" value=""><br><br>
-</div>
-  <input type="submit" value="Submit">
-</form> 
-</div>
+  <h2>Students Data</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Student Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($students as $student)
+      <tr>
+        <td>{{$student->studentName}}</td>
+        <td>{{$student->studentAge}}</td>
+      </tr>
+      @endforeach
+      
+    </tbody>
+  </table>
 </div>
 
 </body>
