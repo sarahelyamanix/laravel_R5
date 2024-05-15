@@ -8,13 +8,20 @@ use App\Http\Controllers\StudentController;
 Route::post('insertStudent', [StudentController::class, 'store'])->name('insertStudent');
 Route::get('addstudent', [StudentController::class, 'create'])->name('addstudent');
 Route::get('students',[StudentController::class,'index'])->name('students');
-
+Route::get('editStudent/{id}',[StudentController::class,'edit'])->name('editStudent');
+Route::put('updateStudent/{id}',[StudentController::class,'update'])->name('updateStudent');
+Route::get('showStudent/{id}',[StudentController::class,'show'])->name('showStudent');
+Route::delete('deleteStudent',[StudentController::class,'destroy'])->name('deleteStudent');
 
 // Route::post('formResult',[StudentController::class,'store'])->name('StuResult');
 
 Route::post('insertClient', [ClientController::class, 'store'])->name('insertClient');
 Route::get('addClient',[ClientController::class,'create'])->name('addClient');
 Route::get('clients',[ClientController::class,'index'])->name('clients');
+Route::get('editClient/{id}',[ClientController::class,'edit'])->name('editClient');
+Route::put('updateClient/{id}',[ClientController::class,'update'])->name('updateClient');
+Route::get('showClient/{id}',[ClientController::class,'show'])->name('showClient');
+Route::delete('deleteClient',[ClientController::class,'destroy'])->name('deleteClient');
 // Route::post('formResult',[ClientController::class,'store'])->name('formResult');
 // Route::get('form1',[ClientController::class,'create'])->name('formSubmit');
 
