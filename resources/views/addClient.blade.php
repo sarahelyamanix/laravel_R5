@@ -10,12 +10,22 @@
 </head>
 <body>
 
-@include('includes.nav')
+@include('includes.navC')
 
 <div class="container">
 <h2>Add Client</h2>
 <form action="{{ route('insertClient')  }}" method="post">
     @csrf
+    @if ($errors->any())
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+-
     <div>
         <label for="fname">name:</label><br>
         <input type="text" id="fname" name="clientName" value="" class="form-control"><br><br>

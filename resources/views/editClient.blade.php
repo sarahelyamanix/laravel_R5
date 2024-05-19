@@ -10,7 +10,7 @@
 </head>
 <body>
 
-@include('includes.nav')
+@include('includes.navC')
 
 <div class="container">
 <h2>Edit Client</h2>

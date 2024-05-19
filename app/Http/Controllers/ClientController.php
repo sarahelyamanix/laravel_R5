@@ -20,7 +20,8 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(){
+    public function create()
+    {
         return view ('addClient');
     }
 
@@ -35,6 +36,12 @@ class ClientController extends Controller
         // $client->email =$request->email;
         // $client->website =$request->website;
         // $client->save();
+        $data = $request->validate([
+            'clientName'=>'required|min:5|max:100',
+            'phone'=>'required|min:11',
+            'email'=>'required|email:rfc',
+            'website'=>'required'
+        ]);
         client::create($request->only($this->columns));
         // return 'Data inserted Successfully :))';
         return redirect('clients');
@@ -75,6 +82,25 @@ class ClientController extends Controller
     {
         $id = $request->id;
         Client::where('id', $id)->delete();
+        return redirect('clients');  
+    }
+    
+        public function forceDelete(Request $request)
+        {
+            $id = $request->id;
+            Client::where('id', $id)->forceDelete();
+            return redirect('trashClient'); 
+        }
+
+    public function trash()
+    {
+       $trashed = Client::onlyTrashed()->get();
+        return view('trashClient', compact('trashed'));
+    }
+
+    public function restore(string $id)
+    {
+        Client::where('id', $id)->restore();
         return redirect('clients');  
     }
 }

@@ -12,16 +12,22 @@ Route::get('editStudent/{id}',[StudentController::class,'edit'])->name('editStud
 Route::put('updateStudent/{id}',[StudentController::class,'update'])->name('updateStudent');
 Route::get('showStudent/{id}',[StudentController::class,'show'])->name('showStudent');
 Route::delete('deleteStudent',[StudentController::class,'destroy'])->name('deleteStudent');
-
+Route::get('trashStudent',[StudentController::class,'trash'])->name('trashStudent');
+Route::delete('forceDelete',[StudentController::class,'forceDelete'])->name('forceDelete');
+Route::get('restoreStudent/{id}',[StudentController::class,'restore'])->name('restoreStudent');
 // Route::post('formResult',[StudentController::class,'store'])->name('StuResult');
 
-Route::post('insertClient', [ClientController::class, 'store'])->name('insertClient');
+Route::post('insertClient', [ClientController::class,'store'])->name('insertClient');
 Route::get('addClient',[ClientController::class,'create'])->name('addClient');
 Route::get('clients',[ClientController::class,'index'])->name('clients');
 Route::get('editClient/{id}',[ClientController::class,'edit'])->name('editClient');
 Route::put('updateClient/{id}',[ClientController::class,'update'])->name('updateClient');
 Route::get('showClient/{id}',[ClientController::class,'show'])->name('showClient');
 Route::delete('deleteClient',[ClientController::class,'destroy'])->name('deleteClient');
+Route::get('trashClient',[ClientController::class,'trash'])->name('trashClient');
+// Route::delete('forceDelete',[ClientController::class,'forceDelete'])->name('forceDelete');
+Route::get('restoreClient/{id}',[ClientController::class,'restore'])->name('restoreClient');
+// Route::get('clients',[ClientController::class,'index'])->name('clients');
 // Route::post('formResult',[ClientController::class,'store'])->name('formResult');
 // Route::get('form1',[ClientController::class,'create'])->name('formSubmit');
 

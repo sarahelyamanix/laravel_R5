@@ -8,7 +8,7 @@
     <title>Show {{$client->clientName}}</title>
 </head>
 <body>
-@include('includes.nav')
+@include('includes.navC')
     <h1>Client: {{$client->clientName}}</h1>
     <hr>
     <h2>Phone: {{$client->phone}}</h2>

@@ -16,6 +16,15 @@
 <h2>Edit Student</h2>
 <form action="{{ route('updateStudent', $student->id) }}" method="post">
     @csrf
+    @if ($errors->any())
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
     @method('put')
     <div>
   <label for="studentName">Student Name:</label><br>

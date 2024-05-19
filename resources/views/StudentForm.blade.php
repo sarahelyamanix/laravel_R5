@@ -12,7 +12,7 @@
 
 @include('includes.nav')
 <div class="container">
-<h2>HTML Forms</h2>
+<h2>Add Student Data</h2>
 <div>
 <form action="{{ route('insertStudent') }}" method="POST">
     @method('POST')
@@ -22,7 +22,7 @@
   <input type="text" id="studentName" name="studentName" value=""><br><br>
 </div>
 <div>
-  <label for="astudentAge">Student Age:</label><br>
+  <label for="studentAge">Student Age:</label><br>
   <input type="text" id="studentAge" name="studentAge" value=""><br><br>
 </div>
   <input type="submit" value="Submit">
