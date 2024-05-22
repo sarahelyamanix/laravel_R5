@@ -14,9 +14,18 @@
 
 <div class="container">
 <h2>Edit Client</h2>
-<form action="{{ route('updateClient', $client->id) }}" method="post">
+<form action="{{ route('updateClient', $client->id) }}" method="post" enctype="multipart/form-data">
     @csrf
-    @method('put')
+    @method('PUT')
+    @if ($errors->any())
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
     <div>
         <label for="fname">name:</label><br>
         <input type="text" id="fname" name="clientName" value="{{$client->clientName}}" class="form-control"><br><br>
@@ -32,6 +41,21 @@
     <div>
         <label for="lname">website:</label><br>
         <input type="text" id="lname" name="website" value="{{$client->website}}" class="form-control"><br><br>
+        
+    <label for="city">City:</label><br>
+    <select name="city" id="city" class="form-control">
+      <option value="">Please Select City</option>
+      <option value="Cairo" {{ $client->city == 'Cairo' ? 'selected' : '' }}>Cairo</option>
+      <option value="Giza" {{ $client->city == 'Giza' ? 'selected' : '' }}>Giza</option>
+      <option value="Alex" {{ $client->city == 'Alex' ? 'selected' : '' }}>Alex</option>
+    </select>
+    <br><br>
+    <label for="active">Active:</label><br>
+    <input type="checkbox" id="active" name="active" {{ $client->active ? 'checked' : '' }}><br><br>
+    
+    <label for="image">Image:</label><br>
+    <img src="{{ asset('assets/images/' . $client->image) }}" alt="{{$client->clientName}}">
+    <input type="file" id="image" name="image" class="form-control"><br><br>
     </div>
         <input type="submit" value="Submit">
 </form> 

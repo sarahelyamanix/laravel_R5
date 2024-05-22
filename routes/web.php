@@ -25,7 +25,7 @@ Route::put('updateClient/{id}',[ClientController::class,'update'])->name('update
 Route::get('showClient/{id}',[ClientController::class,'show'])->name('showClient');
 Route::delete('deleteClient',[ClientController::class,'destroy'])->name('deleteClient');
 Route::get('trashClient',[ClientController::class,'trash'])->name('trashClient');
-// Route::delete('forceDelete',[ClientController::class,'forceDelete'])->name('forceDelete');
+Route::delete('forceDelete',[ClientController::class,'forceDelete'])->name('forceDelete');
 Route::get('restoreClient/{id}',[ClientController::class,'restore'])->name('restoreClient');
 // Route::get('clients',[ClientController::class,'index'])->name('clients');
 // Route::post('formResult',[ClientController::class,'store'])->name('formResult');

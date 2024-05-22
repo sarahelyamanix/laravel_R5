@@ -9,6 +9,7 @@
 </head>
 <body>
 @include('includes.navC')
+    <p><img src="{{ asset('assets/images/' . $client->image) }}" alt="{{$client->clientName}}"></p>
     <h1>Client: {{$client->clientName}}</h1>
     <hr>
     <h2>Phone: {{$client->phone}}</h2>
