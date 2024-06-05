@@ -37,9 +37,9 @@ Route::post('/name', [MyController::class, 'Submit']);
 
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('stacked');
+});
 
 
 // Route::get('sarah/{id?}', function ($id=0) {

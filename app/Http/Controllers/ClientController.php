@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Traits\UploadFile;
 
 class ClientController extends Controller
 {
-    private $columns = ['clientName', 'phone', 'email', 'website'];
+    use UploadFile;
+    // private $columns = ['clientName', 'phone', 'email', 'website'];
     /**
      * Display a listing of the resource.
      */
@@ -46,11 +48,12 @@ class ClientController extends Controller
             'image' => 'required', // Image validation
         ], $messages);
 
-        $imgExt = $request->image->getClientOriginalExtension();
-        $fileName = time() . '.' . $imgExt;
+        // $imgExt = $request->image->getClientOriginalExtension();
+        // $fileName = time() . '.' . $imgExt;
 
-        $path = 'assets/images';
-        $request->image->move($path, $fileName);
+        // $path = 'assets/images';
+        // $request->image->move($path, $fileName);
+        $fileName = $this->upload($request->image, 'assets/images');
 
         $data['image'] = $fileName;
         $data['active'] = isset($request->active);
@@ -107,12 +110,12 @@ class ClientController extends Controller
         }
 
         // Upload the new image
-        $file = $request->file('image');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $file->move($path, $filename);
-
+        // $file = $request->file('image');
+        // $filename = time() . '_' . $file->getClientOriginalName();
+        // $file->move($path, $filename);
+        $fileName = $this->upload($request->image, 'assets/images');
         // Add the new file name to the data array
-        $data['image'] = $filename;
+        $data['image'] = $fileName;
     } else {
         // Retain the existing image if no new image is uploaded
         $data['image'] = $client->image;

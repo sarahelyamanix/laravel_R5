@@ -54,7 +54,7 @@
     <input type="checkbox" id="active" name="active" {{ $client->active ? 'checked' : '' }}><br><br>
     
     <label for="image">Image:</label><br>
-    <img src="{{ asset('assets/images/' . $client->image) }}" alt="{{$client->clientName}}">
+    <img src="{{ asset('assets/images/' . $client->image) }}" alt="{{$client->clientName}}" style="width:300px;">
     <input type="file" id="image" name="image" class="form-control"><br><br>
     </div>
         <input type="submit" value="Submit">
