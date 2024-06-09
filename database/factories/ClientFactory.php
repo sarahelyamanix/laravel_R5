@@ -15,13 +15,14 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            'clientName'=> $this->faker->sentence(),
+            'clientName'=> $this->faker->name(),
             'phone'=> $this->faker->phoneNumber(),
             'email'=> $this->faker->unique()->safeEmail(),
-            'website'=> $this->faker->sentence(),
+            'website'=> $this->faker->Url(),
+            'city_id'=> $this->faker->numberBetween(1,20),
             'image' => $this->faker->imageUrl(),
-            'city' => $this->faker->city,
-            'active' => $this->faker->boolean, 
+            'active' => $this->faker->boolean,
+            'address' => $this->faker->address,
         ];
     }
     

@@ -20,8 +20,11 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Website</th>
+        <th>City_ID</th>
         <th>City</th>
         <th>Active</th>
+        <th>Address</th>
+        <th>Image</th>
         <th>Edit</th>
         <th>Show</th>
         <th>Delete</th>
@@ -34,8 +37,11 @@
         <td>{{$client->phone}}</td>
         <td>{{$client->email}}</td>
         <td>{{$client->website}}</td>
-        <td>{{$client->city}}</td>
+        <td>{{$client->city_id}}</td>
+        <td>{{$client->city->city}}</td>
         <td>{{$client->active == 1 ? 'Yes' : 'No'}}</td>
+        <td>{{$client->address}}</td>
+        <td><img src="{{ asset('assets/images/' . $client->image) }}" alt="{{$client->clientName}}"></td>
         <td><a href='{{route("editClient", $client->id)}}' >Edit</a></td>
         <td><a href='{{route("showClient", $client->id)}}' >Show</a></td>
         <td>

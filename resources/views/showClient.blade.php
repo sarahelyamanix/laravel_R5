@@ -17,5 +17,9 @@
     <h2>Email: {{$client->email}}</h2>
     <hr>
     <h2>Website: {{$client->website}}</h2>
+    <hr>
+    <h2>Address: {{$client->address}}</h2>
+    <hr>
+    <h2>City: {{$client->city->city}}</h2>
 </body>
 </html>
